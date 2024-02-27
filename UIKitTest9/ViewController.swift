@@ -18,14 +18,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         view.backgroundColor = .systemBackground
 
         let layout = DamnFlowLayout()
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let frame = CGRect(x: 0, y: view.frame.height / 4, width: view.frame.width, height: view.frame.height / 2)
+        collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.decelerationRate = .normal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: collectionView.layoutMargins.left, bottom: 0, right: 0)
     
         view.addSubview(collectionView)
-        collectionView.frame = CGRect(x: 0, y: view.frame.height / 4, width: view.frame.width, height: view.frame.height / 2)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -41,8 +41,6 @@ class DamnFlowLayout: UICollectionViewFlowLayout {
         let collectionViewWidth = collectionView.bounds.size.width
         let itemWidth = collectionViewWidth * 0.8
         self.itemSize = CGSize(width: itemWidth, height: collectionView.bounds.size.height)
-        self.sectionInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
-        self.minimumLineSpacing = 10
         self.scrollDirection = .horizontal
     }
 }
